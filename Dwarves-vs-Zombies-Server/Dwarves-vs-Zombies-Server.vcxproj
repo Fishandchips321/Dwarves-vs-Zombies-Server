@@ -68,13 +68,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>E:\Downloads\programming\SDL2_gfx-1.0.1\SDL2_gfx-1.0.1;E:\Downloads\programming\SDL2-devel-2.0.5-VC-2015\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Downloads\programming\SDL2_gfx-1.0.1\SDL2_gfx-1.0.1\Win32\Debug;E:\Downloads\programming\SDL2-devel-2.0.5-VC-2015\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>E:\Boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>E:\Boost\stage\lib;E:\Boost\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_gfx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -110,6 +119,49 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AIController.cpp" />
+    <ClCompile Include="AIPackage.cpp" />
+    <ClCompile Include="block.cpp" />
+    <ClCompile Include="blockController.cpp" />
+    <ClCompile Include="collisionController.cpp" />
+    <ClCompile Include="counter.cpp" />
+    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="entityController.cpp" />
+    <ClCompile Include="eventController.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="initializer.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="itemController.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="netController.cpp" />
+    <ClCompile Include="playerNetAI.cpp" />
+    <ClCompile Include="spawnController.cpp" />
+    <ClCompile Include="tile.cpp" />
+    <ClCompile Include="tileController.cpp" />
+    <ClCompile Include="worldController.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AIController.h" />
+    <ClInclude Include="AIPackageIncludes.h" />
+    <ClInclude Include="AIPackage.h" />
+    <ClInclude Include="block.h" />
+    <ClInclude Include="blockController.h" />
+    <ClInclude Include="collisionController.h" />
+    <ClInclude Include="counter.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="entityController.h" />
+    <ClInclude Include="entityIncludes.h" />
+    <ClInclude Include="eventController.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="initializer.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="itemController.h" />
+    <ClInclude Include="netController.h" />
+    <ClInclude Include="playerNetAI.h" />
+    <ClInclude Include="spawnController.h" />
+    <ClInclude Include="tile.h" />
+    <ClInclude Include="tileController.h" />
+    <ClInclude Include="worldController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
